@@ -1,0 +1,41 @@
+{% extends 'users/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Registration</h3>
+                </div>
+<div class="panel-body">
+                    <form method="post" action="/auth/register/">
+{% csrf_token %}
+                        <p class="bs-component">
+                            <table>
+                                <tr>
+                                    <td>{{ form.username.label_tag }}</td>
+                                    <td>{{ form.username }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ form.password1.label_tag }}</td>
+                                    <td>{{ form.password1 }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ form.password2.label_tag }}</td>
+                                    <td>{{ form.password2 }}</td>
+                                </tr>
+                            </table>
+                        </p>
+                        <p class="bs-component">
+                            <center>
+                                <input class="btn btn-success btn-sm" type="submit" value="Register" />
+                            </center>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

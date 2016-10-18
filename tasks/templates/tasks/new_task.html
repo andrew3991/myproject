@@ -1,0 +1,15 @@
+<form method="POST" id="post-form">
+            {% csrf_token %}
+                  <tr id="the_post">
+                  <td>{{ form.name }}</td>
+                  <td>{{ form.start_date }}</td>
+                  <td>{{ form.end_date }}</td>
+                  <td>{{ form.status }}</td>
+                  <td><input type="submit" value="Post" class="tiny button"></td>
+                  </tr>
+            </form>
+
+
+     
+
+

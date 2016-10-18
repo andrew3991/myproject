@@ -1,0 +1,63 @@
+{% extends 'users/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src = "{% static 'js/main.js' %}"></script>
+<script type="text/javascript">
+      var csrf_token ='{{ csrf_token }}';
+</script>
+
+<div class="project_container">
+<div class="panell"><button>&nbsp; Новая задача</button></div>
+
+      <table class="table table-striped">
+      <thead>
+            <tr>
+            <th>Название</th>
+            <th>Дата начала</th>
+            <th>Дата окончания</th>
+            <th>Статус</th>
+            </tr>
+      </thead>
+
+      <tbody id=add-task>
+      {% for task in project.task_set.all %}
+            <tr>
+            <td>{{task.name}}</td>
+            <td>{{task.start_date}}</td>
+            <td>{{task.end_date|date:"Y/m/d"}}</td>
+            <td>{{task.get_status_display}}</td>
+            <td><a class="btn btn-default" href="{% url 'edit_task' project.id task.id %}"><span class="glyphicon glyphicon-pencil"></span></a>  <a class="btn btn-default" href="{% url 'delete_task' project.id task.id %}"><span class="glyphicon glyphicon-remove"></span></a></td>
+            </tr>
+      {% endfor %}
+            
+      
+      
+      </tbody>
+      </table>
+      
+
+
+
+      <table class="table table-striped">
+            <tbody>
+            <form method="POST" id="post-form">
+            {% csrf_token %}
+                  <tr id="the_post">
+                  <td>{{ form.name }}</td>
+                  <td>{{ form.start_date }}</td>
+                  <td>{{ form.end_date }}</td>
+                  <td>{{ form.status }}</td>
+                  <td><input type="submit" value="Post" class="tiny button"></td>
+                  </tr>
+            </form>
+            
+            </tbody>
+      </table>
+
+
+</div>
+
+     
+{% endblock %}

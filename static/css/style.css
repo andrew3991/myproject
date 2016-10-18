@@ -1,0 +1,121 @@
+body{
+  background-color: #E0E0FF;
+}
+.project_container{
+  top:23%;
+  left: 10%;
+  width: 80%;
+  height: 100%;
+  position: absolute;
+
+}
+
+ul.column{
+
+  left: 10%;
+  width: 80%;
+  height: 100%;
+  position: absolute;
+}
+ul.column li {
+  float: left;
+  width: 230px; /* ширина колонки по умолчанию */
+  padding: 0;
+  margin: 5px 0;
+  display: inline;
+}
+.block {
+  height: 285px;
+  font-size: 1em;
+  margin-right: 10px; /* отступ между колонками */
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #f0f0f0;
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+       -moz-box-shadow: 0 10px 6px -6px #777;
+            box-shadow: 0 10px 6px -6px #777;
+  border-radius: 20px;
+  background: #FFF;
+}
+.block h1 {
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: bolder;
+}
+.block h2 {
+  padding: 0;
+  margin: 0;
+  font-size: 1.0em;
+  font-weight: lighter;
+}
+
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+div.block p{
+  font-weight: 500;
+  font-style: italic;
+  font-size: 1.2em;
+}
+div.panell{
+  background-color: #E0E0FF;
+  border-bottom: 0.7px solid #150840;
+  position:relative;
+  left:10%;
+  margin:0 240px 25px 40px;
+}
+
+#the_post{
+  display: none;
+}
+
+span.glyphicon{
+  font-size: 24px;
+  color: #3F278F;
+  padding-bottom: 7px; 
+}
+div.panell a{
+  left: 508px;
+
+  position: relative;
+}
+.shadow{
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.5);
+
+}
+
+
+
+.add_newproject{
+  display: none;
+  width: 350px;
+  height: 350px;
+  background-color: white;
+  margin: auto 420px;
+  top: 300px;
+  position: relative;
+  text-align: center;
+  padding: 50px;
+}
+
+#add_newproject{
+  display: table;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.remove{
+	position:relative;
+	right: 169px;
+    top: -54px; 
+}

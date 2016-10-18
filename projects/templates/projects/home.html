@@ -1,0 +1,47 @@
+{% extends 'users/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src = "{% static 'js/project.js' %}"></script>
+
+
+<div class="project_container">
+      <div class="panell">
+      <button class="new_project">&nbsp; Новый проект</button>
+      </div>
+      <ul class="column">
+
+      {% for project in request.user.project_set.all %}
+      <li id="project_append">
+            <div class="block">
+                  <h1><a href="{% url 'tasks_table' project.id %}">{{project.name}}</a></h1>
+                  <hr>
+                  <p> {{project.user}}</p>
+                  <h2>Начало:</h2><p> {{project.start_date}}</p>
+                  <h2>Окончание:</h2><p> {{project.end_date}}</p>
+            </div>
+      </li>
+      {% endfor %}
+
+      </ul>
+      
+</div>
+
+<div class="shadow">
+  <div class="add_newproject">
+  	<div class="remove">
+	<span class="glyphicon glyphicon-remove"></span>
+	</div>
+      <h1>New project</h1><br>
+      
+      <form method="POST" class="post-form">{% csrf_token %}
+      
+        <table id="add_newproject" >{{ form.as_table }}</table><br>
+        <button type="submit" class="save btn btn-default">Save</button>
+            
+      </form>
+  </div>
+</div>
+{% endblock %}
